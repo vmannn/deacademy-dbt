@@ -21,6 +21,8 @@ models:
     description: "DBT view Model for customer table"
   - name: sales
     description: "DBT incremental model for sales table"
+  - name: product
+    description: "DBT delete & append model for products (incremental)"
 sources:
   - name: employee
     database: DBT_DB
@@ -37,4 +39,8 @@ sources:
     schema: PUBLIC
     tables:
       - name: SALES_SRC
-    
+  - name: product
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PRODUCT_SRC
