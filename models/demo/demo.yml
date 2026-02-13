@@ -23,6 +23,17 @@ models:
     description: "DBT incremental model for sales table"
   - name: product
     description: "DBT delete & append model for products (incremental)"
+  - name: purchase
+    description: "DBT Model for the purchase table (incremental update + insert (merge))"
+  - name: clean_orders
+    description: "DBT Model for the clean Orders (ephemeral table)"
+  - name: final_order
+    description: "DBT Model for the final orders"
+  - name: concat_address
+    description: "DBT model for the address concat"
+  - name: concat_name
+    description: "DBT Model for the name concat"
+
 sources:
   - name: employee
     database: DBT_DB
@@ -44,3 +55,23 @@ sources:
     schema: PUBLIC
     tables:
       - name: PRODUCT_SRC
+  - name: purchase
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PURCHASE_SRC
+  - name: orders
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: BASE_ORDERS
+  - name: patient
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PATIENT_SRC
+  - name: country
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: SESSION_SRC
